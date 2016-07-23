@@ -22,7 +22,6 @@ import javax.swing.JLabel;
  */
 public class Form1 extends javax.swing.JFrame {
 
-    JLabel[] cards = new JLabel[10];
     String imgs[] = new String[5];
     int i = 0;
 
@@ -162,29 +161,8 @@ public class Form1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        cards[0] = jLabel1;
-        cards[1] = jLabel2;
-        cards[2] = jLabel3;
-        cards[3] = jLabel4;
-        cards[4] = jLabel5;
-        cards[5] = jLabel6;
-        cards[6] = jLabel7;
-        cards[7] = jLabel8;
-        cards[8] = jLabel9;
-        cards[9] = jLabel10;
 
-        int num[] = {0,1,2,3,4,5,6,7,8,9};
-        imgs[0] = "p1.png";
-        imgs[1] = "p2.png";
-        imgs[2] = "p3.jpg";
-        imgs[3] = "p4.jpg";
-        imgs[4] = "p5.jpg";
-        
-        Arrays.sort(num);
-        
-        
-        cards[num[0]].setText("teste");
-        
+
     }//GEN-LAST:event_formWindowOpened
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -194,70 +172,49 @@ public class Form1 extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
-    public void zera()
-    {
-        int k = 0;
-        while(k < cards.length)
-        {
-            cards[k].setText("");
-            k++;
-        }
-    }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        zera();
-        cards[0] = jLabel1;
-        cards[1] = jLabel2;
-        cards[2] = jLabel3;
-        cards[3] = jLabel4;
-        cards[4] = jLabel5;
-        cards[5] = jLabel6;
-        cards[6] = jLabel7;
-        cards[7] = jLabel8;
-        cards[8] = jLabel9;
-        cards[9] = jLabel10;
 
-        ArrayList<Integer> num = new ArrayList<Integer>();
-        int k = 0;
-        while(k < 10)
-        {
-            num.add(k);
-            k++;
-        }
-        
-        
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //zera();
+
+        ArrayList<JLabel> cards = new ArrayList<JLabel>();
+        cards.add(jLabel1);
+        cards.add(jLabel2);
+        cards.add(jLabel3);
+        cards.add(jLabel4);
+        cards.add(jLabel5);
+        cards.add(jLabel6);
+        cards.add(jLabel7);
+        cards.add(jLabel8);
+        cards.add(jLabel9);
+        cards.add(jLabel10);
+
         imgs[0] = "p1.png";
         imgs[1] = "p2.png";
         imgs[2] = "p3.jpg";
         imgs[3] = "p4.jpg";
         imgs[4] = "p5.jpg";
-        
-        Collections.shuffle(num);
-        
-        ImageIcon icon = new ImageIcon(getClass().getResource(imgs[0]));
-        ImageIcon icon2 = new ImageIcon(getClass().getResource(imgs[1]));
-        ImageIcon icon3 = new ImageIcon(getClass().getResource(imgs[2]));
-        ImageIcon icon4 = new ImageIcon(getClass().getResource(imgs[3]));
-        ImageIcon icon5 = new ImageIcon(getClass().getResource(imgs[4]));
-        
-        cards[num.get(0)].setIcon(icon);
-        cards[num.get(1)].setIcon(icon);
-        
-        cards[num.get(2)].setIcon(icon2);
-        cards[num.get(3)].setIcon(icon2);
-        
-        cards[num.get(4)].setIcon(icon3);
-        cards[num.get(5)].setIcon(icon3);
-        
-        cards[num.get(6)].setIcon(icon4);
-        cards[num.get(7)].setIcon(icon4);
-        
-        cards[num.get(8)].setIcon(icon5);
-        cards[num.get(9)].setIcon(icon5);
-        
+
+        Collections.shuffle(cards);
+
+        int k = 0;
+        while (k < 10) {
+            ImageIcon icon = null;
+            if (k == 0) {
+                    icon = new ImageIcon(getClass().getResource(imgs[k]));
+                } else {
+                    icon = new ImageIcon(getClass().getResource(imgs[k - 1]));
+                }
+
+            cards.get(k).setIcon(icon);
+            cards.get(k + 1).setIcon(icon);
+            k = k + 2;
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
     public void change(int id) {
         if (i == 2) {
-            reset();
+
             i = 0;
         } else {
             try {
@@ -266,22 +223,13 @@ public class Form1 extends javax.swing.JFrame {
                 // nextInt is normally exclusive of the top value,
                 // so add 1 to make it inclusive
                 int randomNum = rand.nextInt((5 - 0) + 1) + 0;
-                
+
             } catch (Exception ex) {
                 //Logger.getLogger(Form1.class.getName()).log(Level.SEVERE, null, ex);
             }
             i++;
         }
 
-    }
-
-    public void reset() {
-        int k = 0;
-        while (k < cards.length) {
-            ImageIcon icon = new ImageIcon(getClass().getResource("card.jpg"));
-            cards[k].setIcon(icon);
-            k++;
-        }
     }
 
     /**
