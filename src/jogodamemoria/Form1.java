@@ -6,7 +6,9 @@ package jogodamemoria;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +53,7 @@ public class Form1 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -89,36 +92,48 @@ public class Form1 extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
 
+        jButton1.setText("FREE MY HEART");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel3)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel8)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel10)))
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel2)
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel3)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel8)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel10))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jButton1)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,7 +153,9 @@ public class Form1 extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton1)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,6 +194,67 @@ public class Form1 extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseClicked
+    public void zera()
+    {
+        int k = 0;
+        while(k < cards.length)
+        {
+            cards[k].setText("");
+            k++;
+        }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        zera();
+        cards[0] = jLabel1;
+        cards[1] = jLabel2;
+        cards[2] = jLabel3;
+        cards[3] = jLabel4;
+        cards[4] = jLabel5;
+        cards[5] = jLabel6;
+        cards[6] = jLabel7;
+        cards[7] = jLabel8;
+        cards[8] = jLabel9;
+        cards[9] = jLabel10;
+
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        int k = 0;
+        while(k < 10)
+        {
+            num.add(k);
+            k++;
+        }
+        
+        
+        imgs[0] = "p1.png";
+        imgs[1] = "p2.png";
+        imgs[2] = "p3.jpg";
+        imgs[3] = "p4.jpg";
+        imgs[4] = "p5.jpg";
+        
+        Collections.shuffle(num);
+        
+        ImageIcon icon = new ImageIcon(getClass().getResource(imgs[0]));
+        ImageIcon icon2 = new ImageIcon(getClass().getResource(imgs[1]));
+        ImageIcon icon3 = new ImageIcon(getClass().getResource(imgs[2]));
+        ImageIcon icon4 = new ImageIcon(getClass().getResource(imgs[3]));
+        ImageIcon icon5 = new ImageIcon(getClass().getResource(imgs[4]));
+        
+        cards[num.get(0)].setIcon(icon);
+        cards[num.get(1)].setIcon(icon);
+        
+        cards[num.get(2)].setIcon(icon2);
+        cards[num.get(3)].setIcon(icon2);
+        
+        cards[num.get(4)].setIcon(icon3);
+        cards[num.get(5)].setIcon(icon3);
+        
+        cards[num.get(6)].setIcon(icon4);
+        cards[num.get(7)].setIcon(icon4);
+        
+        cards[num.get(8)].setIcon(icon5);
+        cards[num.get(9)].setIcon(icon5);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     public void change(int id) {
         if (i == 2) {
             reset();
@@ -248,6 +326,7 @@ public class Form1 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
