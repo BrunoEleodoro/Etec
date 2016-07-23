@@ -6,6 +6,7 @@ package jogodamemoria;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -155,12 +156,18 @@ public class Form1 extends javax.swing.JFrame {
         cards[8] = jLabel9;
         cards[9] = jLabel10;
 
+        int num[] = {0,1,2,3,4,5,6,7,8,9};
         imgs[0] = "p1.png";
         imgs[1] = "p2.png";
         imgs[2] = "p3.jpg";
         imgs[3] = "p4.jpg";
         imgs[4] = "p5.jpg";
-
+        
+        Arrays.sort(num);
+        
+        
+        cards[num[0]].setText("teste");
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
