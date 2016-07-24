@@ -23,7 +23,9 @@ import javax.swing.JOptionPane;
  * @author Alunos
  */
 public class Form1 extends javax.swing.JFrame {
-
+    String antes = "";
+    String depois = "";
+    String p1,p2,p3,p4,p5;
     String imgs[] = new String[5];
     int i = 0;
     ArrayList<JLabel> cards = new ArrayList<JLabel>();
@@ -78,12 +80,32 @@ public class Form1 extends javax.swing.JFrame {
         });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
 
@@ -93,7 +115,7 @@ public class Form1 extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogodamemoria/card.jpg"))); // NOI18N
 
-        jButton1.setText("FREE MY HEART");
+        jButton1.setText("TESTE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -177,8 +199,8 @@ public class Form1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //zera();
-
         
+        cards.clear();
         cards.add(jLabel1);
         cards.add(jLabel2);
         cards.add(jLabel3);
@@ -202,21 +224,40 @@ public class Form1 extends javax.swing.JFrame {
         int j = 0;
         while (k < 5) {
             ImageIcon icon = new ImageIcon(getClass().getResource(imgs[k]));
-            cards.get(j).setIcon(icon);
-            cards.get(j + 1).setIcon(icon);
-            j = j + 2;
+            ImageIcon img = new ImageIcon(getClass().getResource("card.jpg"));
+            cards.get(k).setIcon(img);
+            
+            //cards.get(j + 1).setIcon(icon);
+            //j = j + 2;
+            
             k++;
         }
-
+        p1="";
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        change(2);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        change(3);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        change(4);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        change(5);
+    }//GEN-LAST:event_jLabel6MouseClicked
     public void change(int id) {
         if (i == 2) {
 
             i = 0;
         } else {
             try {
-                Icon icone = cards.get(id).getIcon();
-                System.out.println(""+icone.toString());
+                //Icon icone = cards.get(id).getIcon();
+                //(""+icone.toString());
 
             } catch (Exception ex) {
                 //Logger.getLogger(Form1.class.getName()).log(Level.SEVERE, null, ex);
