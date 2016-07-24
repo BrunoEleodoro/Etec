@@ -13,8 +13,10 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +26,7 @@ public class Form1 extends javax.swing.JFrame {
 
     String imgs[] = new String[5];
     int i = 0;
-
+    ArrayList<JLabel> cards = new ArrayList<JLabel>();
     /**
      * Creates new form Form1
      */
@@ -170,13 +172,13 @@ public class Form1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+        change(1);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //zera();
 
-        ArrayList<JLabel> cards = new ArrayList<JLabel>();
+        
         cards.add(jLabel1);
         cards.add(jLabel2);
         cards.add(jLabel3);
@@ -197,19 +199,14 @@ public class Form1 extends javax.swing.JFrame {
         Collections.shuffle(cards);
 
         int k = 0;
-        while (k < 10) {
-            ImageIcon icon = null;
-            if (k == 0) {
-                    icon = new ImageIcon(getClass().getResource(imgs[k]));
-                } else {
-                    icon = new ImageIcon(getClass().getResource(imgs[k - 1]));
-                }
-
-            cards.get(k).setIcon(icon);
-            cards.get(k + 1).setIcon(icon);
-            k = k + 2;
+        int j = 0;
+        while (k < 5) {
+            ImageIcon icon = new ImageIcon(getClass().getResource(imgs[k]));
+            cards.get(j).setIcon(icon);
+            cards.get(j + 1).setIcon(icon);
+            j = j + 2;
+            k++;
         }
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
     public void change(int id) {
@@ -218,11 +215,8 @@ public class Form1 extends javax.swing.JFrame {
             i = 0;
         } else {
             try {
-                Random rand = new Random();
-
-                // nextInt is normally exclusive of the top value,
-                // so add 1 to make it inclusive
-                int randomNum = rand.nextInt((5 - 0) + 1) + 0;
+                Icon icone = cards.get(id).getIcon();
+                System.out.println(""+icone.toString());
 
             } catch (Exception ex) {
                 //Logger.getLogger(Form1.class.getName()).log(Level.SEVERE, null, ex);
