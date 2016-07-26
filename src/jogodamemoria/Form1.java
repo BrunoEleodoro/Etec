@@ -203,23 +203,6 @@ public class Form1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-
-        change(jLabel1);
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        
-        change(jLabel2);
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //zera();
-        
         cards.clear();
         cards.add(jLabel1);
         cards.add(jLabel2);
@@ -240,17 +223,36 @@ public class Form1 extends javax.swing.JFrame {
 
         Collections.shuffle(cards);
 
+        //cards.get(cards.indexOf(jLabel1));
         int k = 0;
         int j = 0;
         while (k < 5) {
             ImageIcon icon = new ImageIcon(getClass().getResource(imgs[k]));
             //ImageIcon img = new ImageIcon(getClass().getResource("card.jpg"));
+            /*
             cards.get(j).setIcon(icon);
             cards.get(j + 1).setIcon(icon);
-            
+            */
             j = j + 2;
             k++;
         }
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+
+        change(jLabel1);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        
+        change(jLabel2);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //zera();
+        
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
